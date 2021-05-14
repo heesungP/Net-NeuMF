@@ -7,3 +7,7 @@ for KIISS
 
 ### pretrain/
 - 모델 여기에 저장해서 불러오기
+
+
+### No module named 'gensim'
+-> conda install -c anaconda gensim

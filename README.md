@@ -1,6 +1,30 @@
 # Node2Vec_NCF
 for KIISS
 
+### 실험 결과 K=10
+
+|모델(32emb)|precision|recall|
+|:--------:|:------:|:------:|
+|base-[1]|0.2427|0.5935|
+|base-[2]|0.2440|0.5978|
+
+
+|모델(64emb)|precision|recall|
+|:--------:|:------:|:------:|
+|base-[1]|0.2477|0.6095|
+|base-[2]|0.2463|0.6072|
+|node-[1]|0.2481|0.6088|
+|node-[2]|0.2476|0.6103|
+
+
+|모델(128emb)|precision|recall|
+|:--------:|:------:|:------:|
+|base-[1]|0.2513|0.6145|
+|node-[1]|0.2429|0.6078|
+|node-[2]|0.2431|0.6041|
+
+- base : modified version
+
 
 ### data/
 - 필요한 데이터 여기로
@@ -10,8 +34,9 @@ for KIISS
 
 
 ### No module named 'gensim'
--> conda install -c anaconda gensim
-
+```
+conda install -c anaconda gensim
+```
 
 
 ### update history

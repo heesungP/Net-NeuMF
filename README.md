@@ -20,6 +20,7 @@ for KIISS
 |모델(128emb)|precision|recall|
 |:--------:|:------:|:------:|
 |base-[1]|0.2513|0.6145|
+|node-[1]|0.2429|0.6078|
 
 - base : modified version
 

@@ -1,7 +1,7 @@
 # Node2Vec_NCF
 for KIISS
 
-### 실험 결과
+### 실험 결과 K=10
 
 |모델|precision|recall|
 |:--------:|:------:|:------:|

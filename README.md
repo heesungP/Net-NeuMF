@@ -3,31 +3,23 @@ for KIISS
 
 ### 실험 결과 K=10
 
-|모델(32emb)|precision|recall|
-|:--------:|:------:|:------:|
-|base-[1]|0.2427|0.5935|
-|base-[2]|0.2440|0.5978|
-
-
 |모델(64emb)|precision|recall|
 |:--------:|:------:|:------:|
 |base-[1]|0.2477|0.6095|
 |base-[2]|0.2463|0.6072|
-|node\*-[1]|0.2481|0.6088|
-|node\*-[2]|0.2476|0.6103|
-|node\*\*-[1]|0.2402|0.5927|
+|node-[1]|0.2502|0.6126|
+|node-[2]|0.2506|0.6116|
+
 
 
 |모델(128emb)|precision|recall|
 |:--------:|:------:|:------:|
 |base-[1]|0.2513|0.6145|
 |base-[2]|0.2479|0.6091|
-|node\*-[1]|0.2429|0.6078|
-|node\*-[2]|0.2431|0.6041|
+|node-[1]|0.2498|0.6126|
 
-- base : modified version
-- \* : course embedding 반영
-- \** : course embedding 반영 + trainable = False
+- base : modified version (NeuMF.py)
+- node : apply user and item embedding in mlp layer (NeuMF_node_nogmf.py)
 
 ### data/
 - 필요한 데이터 여기로

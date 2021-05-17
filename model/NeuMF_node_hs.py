@@ -27,6 +27,12 @@ class NeuMF:
         mlp_item_embedding = Embedding(item_num, emb_size, weights=[emb_arr], input_length=item.shape[1], trainable=train_tf)(item)
         mlp_item_embedding = Flatten()(mlp_item_embedding)
         print(mlp_item_embedding)
+
+        # user_emb_asis = Embedding(user_num, emb_size, weights=[emb_arr], input_length=user.shape[1], trainable=False)(user)
+        # user_emb_asis = Flatten()(user_emb_asis)
+        item_emb_asis = Embedding(item_num, emb_size, weights=[emb_arr], input_length=item.shape[1], trainable=False)(item)
+        item_emb_asis = Flatten()(item_emb_asis)
+
         # GMF layers
         gmf_mul =  Multiply()([gmf_user_embedding, gmf_item_embedding])
 
@@ -52,7 +58,7 @@ class NeuMF:
         mlp_layer_4 = Dense(units=8, activation='relu', name='mlp_layer4')(mlp_layer_3)       # (8,1)
 
         # merge GMF + MLP
-        merged_vector = tf.keras.layers.concatenate([gmf_mul, mlp_layer_4, mlp_item_embedding])
+        merged_vector = tf.keras.layers.concatenate([gmf_mul, mlp_layer_4, item_emb_asis])
         # 여기에 user, item 8짜리 embedding을 같이 concate 해보자
 
         # Output layer

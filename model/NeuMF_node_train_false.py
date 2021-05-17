@@ -4,7 +4,7 @@ from tensorflow.keras.models import Model
 
 class NeuMF:
 
-    def __init__(self, user_num, item_num, emb_size, emb_arr):
+    def __init__(self, user_num, item_num, emb_size, emb_arr_u, emb_arr_i):
 
 
         # Input
@@ -16,15 +16,15 @@ class NeuMF:
         gmf_user_embedding = Flatten()(gmf_user_embedding)
         print(gmf_user_embedding)
         # Item embedding for GMF
-        gmf_item_embedding = Embedding(item_num, emb_size, weights=[emb_arr], input_length=item.shape[1], trainable=False)(item)
+        gmf_item_embedding = Embedding(item_num, emb_size, input_length=item.shape[1])(item)
         gmf_item_embedding = Flatten()(gmf_item_embedding)
         print(gmf_item_embedding)
         # User embedding for MLP
-        mlp_user_embedding = Embedding(user_num, emb_size, input_length=user.shape[1])(user)
+        mlp_user_embedding = Embedding(user_num, emb_size, weights=[emb_arr_u], input_length=user.shape[1], trainable=False)(user)
         mlp_user_embedding = Flatten()(mlp_user_embedding)
         print(mlp_user_embedding)
         # Item embedding for MLP
-        mlp_item_embedding = Embedding(item_num, emb_size, weights=[emb_arr], input_length=item.shape[1], trainable=False)(item)
+        mlp_item_embedding = Embedding(item_num, emb_size, weights=[emb_arr_i], input_length=item.shape[1], trainable=False)(item)
         mlp_item_embedding = Flatten()(mlp_item_embedding)
         print(mlp_item_embedding)
         # GMF layers

@@ -12,11 +12,11 @@ class NeuMF:
         item = Input(shape=(1,), dtype='int32')
 
         # User embedding for GMF
-        gmf_user_embedding = Embedding(user_num, emb_size, weights=[emb_arr_u], input_length=user.shape[1])(user)
+        gmf_user_embedding = Embedding(user_num, emb_size, input_length=user.shape[1])(user)
         gmf_user_embedding = Flatten()(gmf_user_embedding)
         print(gmf_user_embedding)
         # Item embedding for GMF
-        gmf_item_embedding = Embedding(item_num, emb_size, weights=[emb_arr_i], input_length=item.shape[1])(item)
+        gmf_item_embedding = Embedding(item_num, emb_size, input_length=item.shape[1])(item)
         gmf_item_embedding = Flatten()(gmf_item_embedding)
         print(gmf_item_embedding)
         # User embedding for MLP

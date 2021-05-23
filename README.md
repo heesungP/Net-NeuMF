@@ -3,23 +3,16 @@ for KIISS
 
 ### 실험 결과 K=10
 
-|모델(64emb)|precision|recall|
-|:--------:|:------:|:------:|
-|base-[1]|0.2477|0.6095|
-|base-[2]|0.2463|0.6072|
-|node-[1]|0.2502|0.6126|
-|node-[2]|0.2506|0.6116|
+|Emb|Model|Precision|Recall|mAP|nDCG|
+|:--------:|:------:|:------:|:------:|:------:|:------:|
+|32|NeuMF|0.2452|0.5991|0.4215|0.5523|
+|32|Net-NeuMF|0.2459|0.6023|0.4256|0.5571|
+|64|NeuMF|0.2474|0.6058|0.4304|0.5652|
+|64|Net-NeuMF|0.2516|0.6121|0.4404|0.5690|
+|128|NeuMF|0.2504|0.6131|0.4487|0.5743|
+|128|Net-NeuMF|0.2510|0.6144|0.4495|0.5785|
 
 
-
-|모델(128emb)|precision|recall|
-|:--------:|:------:|:------:|
-|base-[1]|0.2513|0.6145|
-|base-[2]|0.2479|0.6091|
-|node-[1]|0.2498|0.6126|
-
-- base : modified version (NeuMF.py)
-- node : apply user and item embedding in mlp layer (NeuMF_node_nogmf.py)
 
 ### data/
 - 필요한 데이터 여기로
@@ -33,11 +26,3 @@ for KIISS
 conda install -c anaconda gensim
 ```
 
-
-### update history
-
-[사용안함] base-NCF-00.ipynb (in code_history/)
-
--> lookup table 설정(전체 데이터셋)과 
-output 뽑을때 cat code로 evaluation 진행하여
-수정했음 -> base-NCF-00-mod.ipynb
